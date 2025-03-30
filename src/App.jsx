@@ -92,12 +92,12 @@ function App() {
           <button onClick={()=> {
             toggleMode((prevMode) => (prevMode==="light" ? "dark" : "light"))
             }
-          } className="toggle_theme"><img src={mode==="light" ? darkMode : lightMode} height="20px" /></button>
+          } className="toggle_theme"><img src={mode==="light" ? darkMode : lightMode} height="20px" width="20px" /></button>
         </div>
         
-          <span className="loader" >{loaderValue}</span>
-        {showInfo && <Result_card weather_info={weatherInfo} />}
-        {showHistory && <History history_list={historyList}/>}
+          <span className={mode==='light' ? 'loader_light' : 'loader_dark'} >{loaderValue}</span>
+        {showInfo && <Result_card weather_info={weatherInfo} app_mode={mode}/>}
+        {showHistory && <History history_list={historyList} />}
 
       </div>      
   );

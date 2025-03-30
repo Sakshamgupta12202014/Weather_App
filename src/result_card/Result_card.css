@@ -1,6 +1,6 @@
-.weather_card {
+.weather_card_light {
   /* max-width: 350px; */
-  width: 100%;
+  width: 50%;
   margin: auto;
   background: #f0f8ff;
   padding: 20px;
@@ -9,8 +9,27 @@
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+.weather_card_dark {
+  /* max-width: 350px; */
+  width: 50%;
+  margin: auto;
+  background: #2E2E2E;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
 .weather_card h3 {
   color: #333;
+}
+
+.text_light{
+  color:black ;
+}
+
+.text_dark{
+  color: white;
 }
 
 .city_country {
@@ -24,10 +43,16 @@
   margin: 10px 0;
 }
 
-.temperature {
+.temperature_light {
   font-size: 2rem;
   font-weight: bold;
   color: #007bff;
+}
+
+.temperature_dark {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
 }
 
 .weather_condition {
