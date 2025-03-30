@@ -1,17 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Londrina+Sketch&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
+
 *{
   margin: 0 ;
   padding: 0;
 }
 
 body {
+  font-family: "Crimson Text", serif;
+  font-weight: 400;
+  font-style: normal;
   height: 100vh;
   margin: 0;
+}
+
+.navbar{
+  font-family: "Crimson Text", serif;
+  font-weight: 400;
+  font-style: normal;
+  justify-content: space-between;
+  display: flex;
+  background-color: #0056b3;
+  color: #ddd;
+  height: 50px;
+  padding: 10px;
 }
 
 .weather_app_light {
   background-color: white;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
+  background-image: url("./assets/dashboard.jpg");
+  background-size: cover;
   text-align: center;
   padding-top: 60px;
 }
@@ -19,14 +38,14 @@ body {
 .weather_app_dark {
   background-color: #333;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   text-align: center;
   padding-top: 60px;
-
 }
 
 .input_headings_light{
-  color: black;
+  color: rgb(13, 3, 71);
+  font-weight: bold;
   padding-left: 0;
 }
 
@@ -36,14 +55,11 @@ body {
 }
 
 .text_color_light {
-  color: #333;
-  padding-bottom: 40px;
-  
+  color: rgb(2, 19, 58);  
 }
 
 .text_color_dark {
   color: white;
-  padding-bottom: 40px;
 }
 
 .search {
@@ -62,6 +78,12 @@ body {
   border-radius: 8px;
   font-size: 1rem;
   outline: none;
+  background: rgba(255, 255, 255, 0.18); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Blurs everything behind the input */
+}
+
+.search_box::placeholder{
+  color: white;
 }
 
 .buttons{
@@ -92,6 +114,30 @@ body {
 
 .loader_dark {
   color: white;
+}
+
+.toggle_theme{
+  background: #064589;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 30px;
+  transition: 0.3s;
+}
+.toggle_theme:hover {
+  background: #011a35;
+}
+
+.change_mode{
+  display: flex;
+  gap: 10px;
+}
+
+.mode_image{
+  border-radius: 5px;
 }
 
 @media (max-width: 768px) {
@@ -137,5 +183,10 @@ body {
 
   .loader {
     font-size: 16px;
+  }
+
+  .navbar{
+    flex-direction: column;
+    height: auto;
   }
 }
