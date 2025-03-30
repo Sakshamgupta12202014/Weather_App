@@ -13,6 +13,7 @@ body {
   height: 100vh;
   width: 100vw;
   text-align: center;
+  padding-top: 60px;
 }
 
 .weather_app_dark {
@@ -20,18 +21,34 @@ body {
   height: 100vh;
   width: 100vw;
   text-align: center;
+  padding-top: 60px;
+
+}
+
+.input_headings_light{
+  color: black;
+  padding-left: 0;
+}
+
+.input_headings_dark{
+  color: white;
+  padding-left: 0;
 }
 
 .text_color_light {
   color: #333;
+  padding-bottom: 40px;
+  
 }
 
 .text_color_dark {
   color: white;
+  padding-bottom: 40px;
 }
 
 .search {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 10px;
@@ -40,11 +57,19 @@ body {
 
 .search_box {
   padding: 10px;
-  width: 200px;
+  width: 300px;
   border: 1px solid #ddd;
   border-radius: 8px;
   font-size: 1rem;
   outline: none;
+}
+
+.buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 .button {
@@ -75,6 +100,11 @@ body {
     align-items: center;
   }
 
+  .buttons{
+    flex-direction: column;
+    align-items: center;
+  }
+
   .search_box {
     width: 90%;
     max-width: 300px;
@@ -96,7 +126,7 @@ body {
   }
 
   .search_box {
-    width: 100%;
+    width: 60%;
   }
 
   .button,

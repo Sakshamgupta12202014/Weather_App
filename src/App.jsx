@@ -102,42 +102,50 @@ function App() {
         
 
         <div className="search">
-          <input
-            className="search_box"
-            type="text"
-            value={city}
-            placeholder="type city name..."
-            onChange={(e) => setCity(e.target.value)}
-          />
-          <input
-            className="search_box"
-            type="text"
-            value={country}
-            onChange={(e) => setCountry(e.target.value)}
-            placeholder="type country name..."
-          />
-          <button onClick={search_weather} className="button">
-            search
-          </button>
-
-          <button onClick={search_weather} className="button">
-            refresh
-          </button>
           
-          <button onClick={weather_forecast} className="button">
-            forecast
-          </button>
+                <span className={mode==="light" ?"input_headings_light" :"input_headings_dark"}>Enter Your City Name : </span>
+                <input
+                  className="search_box"
+                  type="text"
+                  value={city}
+                  placeholder="type city name..."
+                  onChange={(e) => setCity(e.target.value)}
+                />
+            
+            
+                <span className={mode==="light" ?"input_headings_light" :"input_headings_dark"}>Enter Your Country Name : </span>
+                <input
+                  className="search_box"
+                  type="text"
+                  value={country}
+                  onChange={(e) => setCountry(e.target.value)}
+                  placeholder="type country name..."
+                />
+      
+          </div>
+          <div className="buttons">
+              <button onClick={search_weather} className="button">
+                search
+              </button>
 
-          <button className="button" onClick={() => {
-            setShowHistory((prev) => (prev===false?true:false))
-            setShowInfo(false)
-            }
-          }>History</button>
+              <button onClick={search_weather} className="button">
+                refresh
+              </button>
+              
+              <button onClick={weather_forecast} className="button">
+                forecast
+              </button>
 
-          <button onClick={()=> {
-            toggleMode((prevMode) => (prevMode==="light" ? "dark" : "light"))
-            }
-          } className="toggle_theme"><img src={mode==="light" ? darkMode : lightMode} height="20px" width="20px" /></button>
+              <button className="button" onClick={() => {
+                setShowHistory((prev) => (prev===false?true:false))
+                setShowInfo(false)
+                }
+              }>History</button>
+
+              <button onClick={()=> {
+                toggleMode((prevMode) => (prevMode==="light" ? "dark" : "light"))
+                }
+              } className="toggle_theme"><img src={mode==="light" ? darkMode : lightMode} height="20px" width="20px" /></button>
         </div>
         
           <span className={mode==='light' ? 'loader_light' : 'loader_dark'} >{loaderValue}</span>
