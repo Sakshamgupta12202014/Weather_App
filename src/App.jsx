@@ -9,6 +9,7 @@ function App() {
   const [city, setCity] = useState("");
   const [country, setCountry] = useState("");
   const [weatherInfo,setWeatherInfo] = useState({})
+  const [error, setError] = useState("")
   const [showInfo,setShowInfo] = useState(false)
   const [showHistory,setShowHistory] = useState(false)
   const [historyList, setHistoryList] = useState([])
@@ -19,8 +20,14 @@ function App() {
   async function search_weather(e) {
     // api call
     
-    setHistoryList([...historyList, city])
+    if(city.trim()!=="" && country.trim()!==""){
+        const lastSearch = city + ", " + country
+        setHistoryList([...historyList, lastSearch])  
+    }
+
     setShowHistory(false)
+
+    setError("")
 
     setShowInfo(false)
 
@@ -50,8 +57,42 @@ function App() {
       // console.table({ City : city_name, Country : country_name, Weather: weather, Temperature: temperature, Humidity: humidity, Wind_Speed: wind_speed });
     })
     .catch((error) => {
+
+      let errMess;
+      if(city.trim()==="" && country.trim()===""){
+        errMess = "Please enter city and country name / code "
+      }
+      else if(city.trim()==="" ){
+        const errMess = "City cannot be empty"
+      }
+      else if(country.trim()==="" ){
+        const errMess = "country cannot be empty"
+      }
+
+      // const errName = error.name.toString()
+      // const errMessage = error.message
+
+      // const fullError = errName + " | " + errMessage
+      setLoaderValue("")
+      setError(errMess)
       console.log("error in loading and fetching data",error);
     })
+  }
+
+  async function weather_forecast(){
+
+    fetch(`api.openweathermap.org/data/2.5/forecast?q=${city},${country}&appid=e997ba46c9e7d5e7edf3a2ae988246ad&units=metric`)
+    .then((res) => {
+      const data = res.json();
+      return data
+    })
+    .then((data) => {
+      // manage data
+    })
+    .catch((error) => {
+      console.log("error in forcasting weather")
+    })
+
   }
 
   return (
@@ -82,6 +123,10 @@ function App() {
           <button onClick={search_weather} className="button">
             refresh
           </button>
+          
+          <button onClick={weather_forecast} className="button">
+            forecast
+          </button>
 
           <button className="button" onClick={() => {
             setShowHistory((prev) => (prev===false?true:false))
@@ -96,6 +141,8 @@ function App() {
         </div>
         
           <span className={mode==='light' ? 'loader_light' : 'loader_dark'} >{loaderValue}</span>
+          <span className={mode==='light' ? 'loader_light' : 'loader_dark'} >{error}</span>
+
         {showInfo && <Result_card weather_info={weatherInfo} app_mode={mode}/>}
         {showHistory && <History history_list={historyList} />}
 
