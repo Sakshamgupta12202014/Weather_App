@@ -1,24 +1,33 @@
 .history_container_light {
-    width: 300px;
+    max-width: 300px;
+    height: auto;
     color: black;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #007bff;
     margin: 20px auto;
     padding: 15px;
-    border-radius: 10px;
     text-align: center;
+    backdrop-filter: blur(4px); /* Blurs everything behind the input */
+    background: rgba(255, 255, 255, 0); /* Semi-transparent background */
   }
   
   .history_container_dark {
-    width: 300px;
-    color: white;
+    max-width: 300px;
+    height: auto;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #007bff;
+    color: black;
+    backdrop-filter: blur(10px); /* Blurs everything behind the input */
+    background: rgba(255, 255, 255, 0); /* Semi-transparent background */
     margin: 20px auto;
     padding: 15px;
-    border-radius: 10px;
     text-align: center;
   }
 
   h3 {
     margin-bottom: 10px;
-    color: #333;
+    /* color: #333; */
+    text-decoration: underline;
   }
   
   .history_item {
@@ -27,11 +36,11 @@
     color: #007bff;
     color: white;
     border-radius: 5px;
-    font-size: 14px;
+    font-size: 18px;
   }
   
   .empty_history {
-    color: #777;
+    /* color: #777; */
     font-style: italic;
   }
   
