@@ -23,6 +23,7 @@ body{
   /* background: #f0f8ff; */
   padding: 20px;
   text-align: center;
+  border-radius: 5px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   background-image: url("../assets/result.jpg");
   background-size: cover;
