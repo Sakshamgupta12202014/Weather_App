@@ -1,11 +1,11 @@
-import React from "react"
-import "./Home.css"
-import { useState } from "react"
-import Result_card from "../result_card/Result_card"
-import History from "../history/History"
-import lightMode from "../assets/lightmode.png"
-import darkMode from "../assets/darkmode.png"
-import { Link } from "react-router-dom"
+import React from "react";
+import "./Home.css";
+import { useState } from "react";
+import Result_card from "../result_card/Result_card";
+import History from "../history/History";
+import lightMode from "../assets/lightmode.png";
+import darkMode from "../assets/darkmode.png";
+import { Link } from "react-router-dom";
 
 function Home() {
   const [city, setCity] = useState("");
@@ -167,9 +167,9 @@ function Home() {
         </div>
         <div className="buttons">
           {/* <Link to="/result"> */}
-            <button onClick={search_weather} className="button">
-              search
-            </button>
+          <button onClick={search_weather} className="button">
+            search
+          </button>
           {/* </Link> */}
 
           <button onClick={search_weather} className="button">
@@ -205,4 +205,4 @@ function Home() {
   );
 }
 
-export default Home
+export default Home;
